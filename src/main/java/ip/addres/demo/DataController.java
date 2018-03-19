@@ -33,7 +33,8 @@ public class DataController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String add(@RequestParam String firstName, String lastName, String age) {
+    public String add(@RequestParam (value="firstName", defaultValue = "Anonim")
+                                  String firstName, String lastName, String age) {
         List<User> record = databaseOfUsers.getDatabase();
         if (firstName.equals("") || lastName.equals("") || age.equals("")) {
             return "redirect:/err.html";
